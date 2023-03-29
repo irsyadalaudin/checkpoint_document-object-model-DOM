@@ -4,16 +4,16 @@
 }
 
 /* HEADER */
+header {
+    background-color: aqua;
+    height: 90px;
+}
+
 .max-width {
     max-width: 1200px;
     /* padding: 0 20px; */
     margin: 0 auto;
     position: relative;
-}
-
-.home {
-    background-color: aqua;
-    height: 90px;
 }
 
 #sneakers-logo {
