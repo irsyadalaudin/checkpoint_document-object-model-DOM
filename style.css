@@ -5,8 +5,9 @@
 
 /* HEADER */
 header {
-    background-color: aqua;
+    background-color:#F5F5F5;
     height: 90px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .max-width {
@@ -72,17 +73,74 @@ nav {
 }
 
 /* MAIN */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+main {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* CONTAINER */
 .container {
     display: grid;
-    grid-template-columns: repeat(3, 150px);
-    grid-template-rows: repeat(3, 150px);
+    grid-template-columns: repeat(3, 290px);
+    grid-template-rows: repeat(3, 240px);
+    margin-top: 25px;
 }
 
-.barang {
-    border: 2px solid black;
+.sepatu {
+    /* border: 2px solid black; */
+    padding-left: 5px;
+    width: 270px;
+    height: 220px;
+    background-color: #E6E6E3;
+    border-radius: 10px;
 }
+
+/* .kanan {
+    margin-left: 5px;
+} */
 
 .foto-sepatu {
-    width: 100px;
+    width: 150;
     height: 100px;
 }
+
+h3 {
+    font-size: 13px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 3px;
+}
+
+h2 {
+    font-size: 27px;
+    margin-bottom: 3px;
+}
+
+.bintang {
+    display: flex;
+    align-items: center;
+}
+
+.svg-bintang {
+    margin-left: 5px;
+}
+
+/* svg {
+    margin-left: 5px;
+} */
+
+.p-bintang {
+    margin-top: 3px;
+    margin-left: 4px;
+}
+
+
+button {
+    margin-top: 2px;
+}
+
+/* CONTAINER-2 */
+/* .container-2 {
+
+} */
