@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+.max-width {
+    max-width: 1200px;
+    /* padding: 0 20px; */
+    margin: 0 auto;
+    position: relative;
+}
+
+.home {
+    background-color: aqua;
+    height: 90px;
+}
+
+#sneakers-logo {
+    width: 100px;
+    height: 50px;
+    margin-top: 20px;
+    position: relative;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-self: center;
+    width: 500px;
+    height: 25px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    margin-right: 110px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#search-icon {
+    width: 20px;
+    align-self: center;
+    margin-left: 5px;
+}
+
+#search-bar {
+    position: relative;
+    width: 500px;
+    height: 25px;
+
+    background: transparent;
+    border: none;
+    outline: none;
+    /* color: black; */
+}
+
+nav {
+    display: flex;
+    float: right;
+}
+
+#keranjang, #notifikasi, #pesan {
+    margin-top: 10px;
+    margin-left: 20px;
+    align-self: center;
+}
+
+#akun-nama {
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-right: 50px;
+    align-self: center;
+}
+
+/* MAIN */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+}
+
+.barang {
+    border: 2px solid black;
+}
+
+.foto-sepatu {
+    width: 100px;
+    height: 100px;
+}
