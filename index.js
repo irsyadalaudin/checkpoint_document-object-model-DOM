@@ -9,7 +9,7 @@ for (let i = 0; i < plusButton.length; i++) {
     });
 }
 
-for (let i = 0; i < minusButton.length; i--) {
+for (let i = 0; i < minusButton.length; i++) {
     minusButton[i].addEventListener('click', function() {
         let currentQuantity = parseInt(quantityField[i].innerHTML);
         if (currentQuantity > 0) {
@@ -17,3 +17,17 @@ for (let i = 0; i < minusButton.length; i--) {
       }
     });
 }
+
+/** */
+// const removeItem = document.getElementById('svg-remove');
+// const item = removeItem.parentElement.parentElement;
+
+// removeItem.addEventListener('click', function() {
+//     item.remove();
+// });
+
+const removeItem = document.getElementById('svg-remove');
+removeItem.addEventListener('click', function() {
+    const item = this.parentElement.parentElement;
+    item.remove();
+});
