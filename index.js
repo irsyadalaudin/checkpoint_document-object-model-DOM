@@ -26,8 +26,18 @@ for (let i = 0; i < minusButton.length; i++) {
 //     item.remove();
 // });
 
-const removeItem = document.getElementById('svg-remove');
+const removeItem = document.getElementById('remove');
 removeItem.addEventListener('click', function() {
     const item = this.parentElement.parentElement;
     item.remove();
+});
+
+
+const likeButton = document.getElementById('like-button');
+likeButton.addEventListener('click', function() {
+    if(likeButton.style.fill === 'red') {
+        likeButton.style.fill = 'white';
+    } else {
+        likeButton.style.fill = 'red'
+    }
 });

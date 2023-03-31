@@ -142,6 +142,7 @@ button {
     margin-top: 2px;
 }
 
+
 /* CONTAINER-2 */
 .container-2 {
     display: grid;
@@ -164,13 +165,23 @@ button {
 .keranjang-sepatu {
     grid-row-start: 2;
     grid-row-end: 8;
-    margin-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    justify-self: center;
+    /* margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px; */
+    width: 250px;
+    height: 230px;
+    background-color: #F5F5F5;
+    border-radius: 10px;
 }
 
 .hasil {
     display: flex;
     align-items: center;
     margin-left: 11px;
+}
+
+
+#like-button {
+    background-color: white;
 }
