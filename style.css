@@ -59,13 +59,13 @@ nav {
     float: right;
 }
 
-#keranjang, #notifikasi, #pesan {
+#cart-logo, #notification-logo, #messages-logo {
     margin-top: 10px;
     margin-left: 20px;
     align-self: center;
 }
 
-#akun-nama {
+#account-name {
     margin-left: 50px;
     margin-top: 10px;
     margin-right: 50px;
@@ -88,7 +88,7 @@ main {
     margin-top: 25px;
 }
 
-.sepatu {
+.shoes {
     /* border: 2px solid black; */
     /* padding-left: 5px; */
     width: 270px;
@@ -97,11 +97,8 @@ main {
     border-radius: 10px;
 }
 
-/* .kanan {
-    margin-left: 5px;
-} */
 
-.foto-sepatu {
+.shoes-photos {
     width: 200px;
     height: 100px;
     margin-left: 25px;
@@ -116,23 +113,19 @@ h3 {
     margin-left: 13px;
 }
 
-.harga {
+.price {
     font-size: 27px;
     margin-bottom: 3px;
     margin-left: 13px;
 }
 
-.bintang {
+.star {
     display: flex;
     align-items: center;
     margin-left: 13px;
 }
 
-.svg-bintang {
-    margin-left: 5px;
-}
-
-.p-bintang {
+.p-star {
     margin-top: 3px;
     margin-left: 4px;
 }
@@ -144,10 +137,12 @@ button {
 
 
 /* CONTAINER-2 */
-.container-2 {
-    display: grid;
-    grid-template-columns: 320px;
-    grid-template-rows: repeat(15, 40px);
+.container-cart-2 {
+    display: inline-block;
+    width: 320px;
+    height: 700px;
+    /* grid-template-columns: 320px;
+    grid-template-rows: repeat(15, 40px); */
     margin-top: 25px;
     margin-bottom: 21px;
     background-color: #E6E6E3;
@@ -155,27 +150,32 @@ button {
 }
 
 #cart {
-    grid-row-start: 1;
-    grid-row-end: 2;
+    /* grid-row-start: 1;
+    grid-row-end: 2; */
     font-size: 25px;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-bottom: 8px;
 }
 
-.keranjang-sepatu {
-    grid-row-start: 2;
-    grid-row-end: 8;
-    justify-self: center;
+.shoes-cart {
+    /* grid-row-start: 2;
+    grid-row-end: 8; */
+    justify-items: center;
+    align-content: center;
     /* margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px; */
+
+    margin-left: 35px;
+    margin-bottom: 20px;
     width: 250px;
     height: 230px;
-    background-color: #F5F5F5;
+    background-color: white;
     border-radius: 10px;
 }
 
-.hasil {
+.result {
     display: flex;
     align-items: center;
     margin-left: 11px;

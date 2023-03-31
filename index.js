@@ -18,8 +18,7 @@ for (let i = 0; i < minusButton.length; i++) {
     });
 }
 
-/** */
-// const removeItem = document.getElementById('svg-remove');
+// const removeItem = document.getElementById('remove');
 // const item = removeItem.parentElement.parentElement;
 
 // removeItem.addEventListener('click', function() {
@@ -31,6 +30,7 @@ removeItem.addEventListener('click', function() {
     const item = this.parentElement.parentElement;
     item.remove();
 });
+console.log(removeItem)
 
 
 const likeButton = document.getElementById('like-button');
