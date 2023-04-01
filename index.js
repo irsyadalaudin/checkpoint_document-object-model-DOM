@@ -18,6 +18,7 @@ for (let i = 0; i < minusButton.length; i++) {
     });
 }
 
+
 // const removeItem = document.getElementById('remove');
 // const item = removeItem.parentElement.parentElement;
 
@@ -33,11 +34,27 @@ removeItem.addEventListener('click', function() {
 console.log(removeItem)
 
 
+// const likeButton = document.getElementById('like-button');
+// likeButton.addEventListener('click', function() {
+//     if(likeButton.style.fill === 'red') {
+//         likeButton.style.fill = 'white';
+//     } else {
+//         likeButton.style.fill = 'red'
+//     }
+// });
+
 const likeButton = document.getElementById('like-button');
 likeButton.addEventListener('click', function() {
-    if(likeButton.style.fill === 'red') {
-        likeButton.style.fill = 'white';
+    if(likeButton.getAttribute('fill') === 'red') {
+        likeButton.setAttribute('fill', 'white');
     } else {
-        likeButton.style.fill = 'red'
+        likeButton.setAttribute('fill', 'red')
     }
 });
+
+
+// const addToCart = document.getElementsById('adding-card');    // TOMBOL, YANG KETIKA DI-KLIK AKAN MEMASUKKAN BARANG KE DALAM CART
+// const cart = document.getElementById('cart')                  // CART NYA, YANG DIMANA TEMPAT UNTUK MENAMPUNG BARANG
+// addToCart.addEventListener('click', function() {
+//     const newSepatu = document.createElement('div')
+// });
