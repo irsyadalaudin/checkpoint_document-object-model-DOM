@@ -176,4 +176,45 @@ So, in summary, .nextSibling is used to get the next sibling of an element in th
 Dalam kode tersebut, nextSibling adalah sebuah property pada objek yang merepresentasikan elemen HTML yang diidentifikasi dengan id cart (dalam hal ini, elemen HTML tersebut adalah cartOrder). Property ini digunakan bersama dengan method insertBefore() pada parent element cartOrder. nextSibling mengembalikan elemen HTML yang berada tepat setelah cartOrder pada tree node HTML. Sehingga, shoesIntoCart yang merupakan elemen HTML baru yang dibuat akan dimasukkan setelah cartOrder pada parent element yang sama.
 
 
-/* */
+
+/** */
+function addToCart() {
+	// Get all the "ADD TO CART" buttons
+	const addToCartButtons = document.querySelectorAll('#adding-cart');
+
+	// Add an event listener to each button
+	addToCartButtons.forEach(function(button) {
+		button.addEventListener('click', function() {
+			// Get the relevant information from the "shoes" div
+			const shoes = button.parentElement.parentElement;
+			const shoesPhotos = shoes.querySelector('.shoes-photos').src;      // '.src' digunakan untuk mengambil nilai dari atribut tertentu pada elemen HTML yang dipilih.  // BISA JUGA MENGGUNAKAN getAttribute(), kita dapat mengambil nilai dari atribut tertentu pada suatu elemen HTML.
+			const shoesName = shoes.querySelector('h3').textContent;
+			const shoesPrice = shoes.querySelector('.price').textContent;
+
+			// Create a new "shoes-cart" div with the retrieved information
+			const shoesIntoCart = document.createElement('div');
+			shoesIntoCart.classList.add('shoes-cart');
+			shoesIntoCart.innerHTML = `
+				<img class="shoes-photos" src="${shoesPhotos}" alt="">
+				<h3>${shoesName}</h3>
+				<h2 class="price">${shoesPrice}</h2>
+				<div class="result">
+				<button id="remove">remove</button>
+				<svg id="like-button" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Heart_01"> <path id="Vector" d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001C12 20.5001 21 15.4999 21 9.49991C21 3.49988 14 2.99988 12 7.69431Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+					<div class="cart-total">
+						<button class="minus">-</button>
+						<span class="quantity">1</span>
+						<button class="plus">+</button>
+					</div>
+				</div>
+			`;
+		
+			// Append the new "shoes-cart" div to the "CART" section
+			const cartOrder = document.querySelector('#cart');
+			cartOrder.parentElement.insertBefore(shoesIntoCart, cartOrder.nextSibling);
+		});
+	});
+}
+
+// Call the function
+addToCart();

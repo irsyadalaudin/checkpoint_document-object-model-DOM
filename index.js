@@ -44,19 +44,16 @@ likeButton.addEventListener('click', function() {
 
 /** */
 function addToCart() {
-	// Get all the "ADD TO CART" buttons
 	const addToCartButtons = document.querySelectorAll('#adding-cart');
 
-	// Add an event listener to each button
 	addToCartButtons.forEach(function(button) {
 		button.addEventListener('click', function() {
-			// Get the relevant information from the "shoes" div
+
 			const shoes = button.parentElement.parentElement;
 			const shoesPhotos = shoes.querySelector('.shoes-photos').src;      // '.src' digunakan untuk mengambil nilai dari atribut tertentu pada elemen HTML yang dipilih.  // BISA JUGA MENGGUNAKAN getAttribute(), kita dapat mengambil nilai dari atribut tertentu pada suatu elemen HTML.
 			const shoesName = shoes.querySelector('h3').textContent;
 			const shoesPrice = shoes.querySelector('.price').textContent;
 
-			// Create a new "shoes-cart" div with the retrieved information
 			const shoesIntoCart = document.createElement('div');
 			shoesIntoCart.classList.add('shoes-cart');
 			shoesIntoCart.innerHTML = `
@@ -81,5 +78,4 @@ function addToCart() {
 	});
 }
 
-// Call the function
 addToCart();
