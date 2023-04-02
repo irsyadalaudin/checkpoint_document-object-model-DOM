@@ -1,11 +1,4 @@
-/* */
-const removeItem = document.getElementById('remove');
-const item = removeItem.parentElement.parentElement;
-
-removeItem.addEventListener('click', function() {
-    item.remove();
-});
-
+/* UNTUK MENGUBAH WARNA 'HEART' */
 const likeButton = document.getElementById('like-button');
 likeButton.addEventListener('click', function() {
     if(likeButton.style.fill === 'red') {
@@ -14,6 +7,21 @@ likeButton.addEventListener('click', function() {
         likeButton.style.fill = 'red'
     }
 });
+
+
+
+/* ADA 2 CARA UNTUK MENGHAPUS */
+const removeItem = shoesIntoCart.querySelector('#remove');
+removeItem.addEventListener('click', function() {
+    shoesIntoCart.remove();
+});
+
+const removeItem = document.getElementById('remove');
+removeItem.addEventListener('click', function() {
+	const item = this.parentElement.parentElement;
+	item.remove();
+});
+
 
 
 
@@ -83,7 +91,7 @@ addToCartButtons.forEach(button => {
 
 
 
-/* KODE YANG BENAR & JALAN UNTUK MENAMBHAKAN BARANG KE 'CART' */
+/* KODE YANG BENAR & JALAN UNTUK MENAMBAHKAN BARANG KE 'CART' */
 /* MENGGUNAKAN ES6 => */
 addToCartButtons.forEach(button => {
 	button.addEventListener('click', () => {
@@ -119,65 +127,8 @@ addToCartButtons.forEach(button => {
 
 
 
-/* */
-In JavaScript, both 'parentNode' and 'parentElement' are properties used to access the parent element of a given element in the Document Object Model (DOM).
-The 'parentNode' property returns the parent node of an element, which can be any type of node, including an element node, a text node, or a comment node. It is a property of the Node interface, which is a base interface that all nodes in the DOM inherit from.
-The 'parentElement' property, on the other hand, returns the parent element of an element. It always returns an element node and is a property of the Element interface, which is a derived interface of the Node interface.
-So, the main difference between 'parentNode' and 'parentElement' is the type of node they return. 'parentNode' can return any type of node, while 'parentElement' always returns an element node. In most cases, 'parentElement' is more appropriate when you want to access the parent element of an element in the DOM.
-
-
-
-/* */
-'Learning by research' is an approach to education that emphasizes the active and independent pursuit of knowledge through research activities. This approach involves students engaging in hands-on, inquiry-based learning experiences that allow them to explore and discover new information and knowledge.
-In learning by research, students are encouraged to identify their own research questions and design their own investigations to answer those questions. This approach emphasizes critical thinking, problem-solving, and creativity, and helps students develop skills such as data analysis, communication, and collaboration.
-The process of learning by research typically involves several stages, including:
-        1. Identifying a research question or topic of interest
-        2. Conducting background research to gather information and knowledge about the topic
-        3. Designing and conducting experiments or investigations to gather data
-        4. Analyzing and interpreting data to draw conclusions
-        5. Communicating findings through presentations, reports, or other means
-Learning by research can be applied in a variety of educational contexts, from elementary school through graduate school. It can be used in any subject area, from science and math to social studies and the arts. The approach can be adapted to meet the needs of different learners and can be used in both traditional classroom settings and online learning environments. Overall, learning by research encourages students to become active, engaged learners who are able to take ownership of their learning and pursue knowledge and understanding independently.
-
-
-
-/* */
-Metode getAttribute() digunakan untuk mengambil nilai dari atribut tertentu pada elemen HTML yang dipilih. Dalam JavaScript, setiap elemen HTML diwakili oleh objek DOM (Document Object Model). Objek DOM memungkinkan kita untuk memanipulasi elemen HTML dan atributnya menggunakan metode dan properti yang disediakan.
-Dengan menggunakan getAttribute(), kita dapat mengambil nilai dari atribut tertentu pada suatu elemen HTML. Metode ini mengambil satu argumen, yaitu nama atribut yang ingin kita ambil nilainya. Contoh penggunaannya adalah sebagai berikut:
-/*
-    let link = document.getElementById("myLink");
-    let hrefValue = link.getAttribute("href");
-*/
-Pada contoh di atas, getAttribute() digunakan untuk mengambil nilai dari atribut href pada elemen dengan id myLink. Nilai dari atribut tersebut kemudian disimpan ke dalam variabel hrefValue.
-Namun, jika kita ingin mengambil nilai dari atribut standar seperti id, class, title, src, dan lain sebagainya, sebaiknya kita menggunakan properti yang sesuai seperti element.id, element.className, element.title, element.src, dan sebagainya. Ini lebih disarankan karena lebih mudah ditulis dan memiliki kinerja yang lebih baik dibandingkan dengan getAttribute().
-
-const imgSrc = shoesDiv.querySelector('.shoes-photos').getAttribute('src');  // KETIKA MENGAMBIL   NILAI MENGUUNAKAN .getAttribute('src')
-const imgSrc = shoesDiv.querySelector('.shoes-photos').src;                  // TETAPI LEBIH TEPAT TANPA MENGGUNAKAN .getAttribute('src'), DAN LANGSUNG MENULISKANNYA ,src
-
-
-
-/* */
-You can directly access the src property of the <img> element using dot notation. Here's how you can modify the code:
-/*
-    const imgSrc = shoesDiv.querySelector('.shoes-photos').src;
-*/
-This will get the src value of the img element without using getAttribute().
-
-
-
-/* */
-In the code you provided, cartOrder.nextSibling is used to insert the shoesIntoCart element immediately after the cartOrder element in the DOM.
-.nextSibling is a property of a DOM element that returns the node immediately following the specified element in the DOM tree. It returns null if there are no more nodes.
-In the context of the provided code, cartOrder.nextSibling returns the next sibling node after the cartOrder element, which will be the element that comes after the cartOrder in the HTML markup. The shoesIntoCart element is then inserted immediately after this node using the insertBefore() method, which is called on the parent element of cartOrder.
-So, in summary, .nextSibling is used to get the next sibling of an element in the DOM, and it is used in the provided code to insert an element immediately after another element in the DOM.
-
-
-
-/* */
-Dalam kode tersebut, nextSibling adalah sebuah property pada objek yang merepresentasikan elemen HTML yang diidentifikasi dengan id cart (dalam hal ini, elemen HTML tersebut adalah cartOrder). Property ini digunakan bersama dengan method insertBefore() pada parent element cartOrder. nextSibling mengembalikan elemen HTML yang berada tepat setelah cartOrder pada tree node HTML. Sehingga, shoesIntoCart yang merupakan elemen HTML baru yang dibuat akan dimasukkan setelah cartOrder pada parent element yang sama.
-
-
-
-/** */
+/* KODE YANG BENAR & JALAN UNTUK MENAMBAHKAN BARANG KE 'CART' */
+/* MENGGUNAKAN JAVASCRIPT function() */
 function addToCart() {
 	// Get all the "ADD TO CART" buttons
 	const addToCartButtons = document.querySelectorAll('#adding-cart');
@@ -218,3 +169,71 @@ function addToCart() {
 
 // Call the function
 addToCart();
+
+
+
+/* */
+In the code you provided, cartOrder.nextSibling is used to insert the shoesIntoCart element immediately after the cartOrder element in the DOM.
+.nextSibling is a property of a DOM element that returns the node immediately following the specified element in the DOM tree. It returns null if there are no more nodes.
+In the context of the provided code, cartOrder.nextSibling returns the next sibling node after the cartOrder element, which will be the element that comes after the cartOrder in the HTML markup. The shoesIntoCart element is then inserted immediately after this node using the insertBefore() method, which is called on the parent element of cartOrder.
+So, in summary, .nextSibling is used to get the next sibling of an element in the DOM, and it is used in the provided code to insert an element immediately after another element in the DOM.
+
+
+/* */
+Dalam kode tersebut, nextSibling adalah sebuah property pada objek yang merepresentasikan elemen HTML yang diidentifikasi dengan id cart (dalam hal ini, elemen HTML tersebut adalah cartOrder). Property ini digunakan bersama dengan method insertBefore() pada parent element cartOrder. nextSibling mengembalikan elemen HTML yang berada tepat setelah cartOrder pada tree node HTML. Sehingga, shoesIntoCart yang merupakan elemen HTML baru yang dibuat akan dimasukkan setelah cartOrder pada parent element yang sama.
+
+
+
+/* */
+In JavaScript, both 'parentNode' and 'parentElement' are properties used to access the parent element of a given element in the Document Object Model (DOM).
+The 'parentNode' property returns the parent node of an element, which can be any type of node, including an element node, a text node, or a comment node. It is a property of the Node interface, which is a base interface that all nodes in the DOM inherit from.
+The 'parentElement' property, on the other hand, returns the parent element of an element. It always returns an element node and is a property of the Element interface, which is a derived interface of the Node interface.
+So, the main difference between 'parentNode' and 'parentElement' is the type of node they return. 'parentNode' can return any type of node, while 'parentElement' always returns an element node. In most cases, 'parentElement' is more appropriate when you want to access the parent element of an element in the DOM.
+
+
+
+/* */
+'Learning by research' is an approach to education that emphasizes the active and independent pursuit of knowledge through research activities. This approach involves students engaging in hands-on, inquiry-based learning experiences that allow them to explore and discover new information and knowledge.
+In learning by research, students are encouraged to identify their own research questions and design their own investigations to answer those questions. This approach emphasizes critical thinking, problem-solving, and creativity, and helps students develop skills such as data analysis, communication, and collaboration.
+The process of learning by research typically involves several stages, including:
+        1. Identifying a research question or topic of interest
+        2. Conducting background research to gather information and knowledge about the topic
+        3. Designing and conducting experiments or investigations to gather data
+        4. Analyzing and interpreting data to draw conclusions
+        5. Communicating findings through presentations, reports, or other means
+Learning by research can be applied in a variety of educational contexts, from elementary school through graduate school. It can be used in any subject area, from science and math to social studies and the arts. The approach can be adapted to meet the needs of different learners and can be used in both traditional classroom settings and online learning environments. Overall, learning by research encourages students to become active, engaged learners who are able to take ownership of their learning and pursue knowledge and understanding independently.
+
+
+
+/* */
+Metode getAttribute() digunakan untuk mengambil nilai dari atribut tertentu pada elemen HTML yang dipilih. Dalam JavaScript, setiap elemen HTML diwakili oleh objek DOM (Document Object Model). Objek DOM memungkinkan kita untuk memanipulasi elemen HTML dan atributnya menggunakan metode dan properti yang disediakan.
+Dengan menggunakan getAttribute(), kita dapat mengambil nilai dari atribut tertentu pada suatu elemen HTML. Metode ini mengambil satu argumen, yaitu nama atribut yang ingin kita ambil nilainya. Contoh penggunaannya adalah sebagai berikut:
+/*
+    let link = document.getElementById("myLink");
+    let hrefValue = link.getAttribute("href");
+*/
+Pada contoh di atas, getAttribute() digunakan untuk mengambil nilai dari atribut href pada elemen dengan id myLink. Nilai dari atribut tersebut kemudian disimpan ke dalam variabel hrefValue.
+Namun, jika kita ingin mengambil nilai dari atribut standar seperti id, class, title, src, dan lain sebagainya, sebaiknya kita menggunakan properti yang sesuai seperti element.id, element.className, element.title, element.src, dan sebagainya. Ini lebih disarankan karena lebih mudah ditulis dan memiliki kinerja yang lebih baik dibandingkan dengan getAttribute().
+
+const imgSrc = shoesDiv.querySelector('.shoes-photos').getAttribute('src');  // KETIKA MENGAMBIL   NILAI MENGUUNAKAN .getAttribute('src')
+const imgSrc = shoesDiv.querySelector('.shoes-photos').src;                  // TETAPI LEBIH TEPAT TANPA MENGGUNAKAN .getAttribute('src'), DAN LANGSUNG MENULISKANNYA ,src
+
+
+
+/* */
+Metode setAttribute() dalam JavaScript digunakan untuk mengatur nilai dari atribut pada elemen HTML yang ada atau untuk menambahkan atribut baru pada elemen HTML. Anda dapat menggunakan setAttribute() untuk mengubah nilai atribut yang ada atau menambahkan atribut baru pada elemen HTML.
+Misalnya, jika Anda ingin mengatur atribut src pada sebuah elemen gambar dengan id my-image, maka Anda dapat menggunakan setAttribute() sebagai berikut:
+/*
+const myImage = document.getElementById('my-image');
+myImage.setAttribute('src', 'path/to/image.png');
+*/
+Ini akan mengatur nilai atribut src pada elemen gambar dengan id my-image menjadi path/to/image.png.
+
+
+
+/* */
+You can directly access the src property of the <img> element using dot notation. Here's how you can modify the code:
+/*
+    const imgSrc = shoesDiv.querySelector('.shoes-photos').src;
+*/
+This will get the src value of the img element without using getAttribute().\
