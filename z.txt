@@ -1,0 +1,179 @@
+/* */
+const removeItem = document.getElementById('remove');
+const item = removeItem.parentElement.parentElement;
+
+removeItem.addEventListener('click', function() {
+    item.remove();
+});
+
+const likeButton = document.getElementById('like-button');
+likeButton.addEventListener('click', function() {
+    if(likeButton.style.fill === 'red') {
+        likeButton.style.fill = 'white';
+    } else {
+        likeButton.style.fill = 'red'
+    }
+});
+
+
+
+/* */
+const addToCart = document.getElementsById('adding-card');    // TOMBOL, YANG KETIKA DI-KLIK AKAN MEMASUKKAN BARANG KE DALAM CART
+const cart = document.getElementById('cart')                  // CART NYA, YANG DIMANA TEMPAT UNTUK MENAMPUNG BARANG
+addToCart.addEventListener('click', function() {
+    const newShoesCart = document.createElement('div');       // CREATE NEW ELEMENT
+    newShoesCart.classList.add('shoes-cart');
+
+    newShoesCart.innerHTML = `
+        <img class="shoes-photos" src="./png/ADIDAS RUNNING Sepatu EQ21 Run Pria Abu-abu GY2195.png" alt="">
+        <h3>ADIDAS RUNNING Sepatu EQ21 Run Pria Abu-abu GY2195</h3>
+        <h2 class="price">Rp. 500.000</h2>
+        <div class="star">
+            <svg width="12px" height="12px" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>star_favorite [#1499]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-99.000000, -320.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M60.556381,172.206 C60.1080307,172.639 59.9043306,173.263 60.0093306,173.875 L60.6865811,177.791 C60.8976313,179.01 59.9211306,180 58.8133798,180 C58.5214796,180 58.2201294,179.931 57.9282291,179.779 L54.3844766,177.93 C54.1072764,177.786 53.8038262,177.714 53.499326,177.714 C53.1958758,177.714 52.8924256,177.786 52.6152254,177.93 L49.0714729,179.779 C48.7795727,179.931 48.4782224,180 48.1863222,180 C47.0785715,180 46.1020708,179.01 46.3131209,177.791 L46.9903714,173.875 C47.0953715,173.263 46.8916713,172.639 46.443321,172.206 L43.575769,169.433 C42.4480682,168.342 43.0707186,166.441 44.6289197,166.216 L48.5916225,165.645 C49.211123,165.556 49.7466233,165.17 50.0227735,164.613 L51.7951748,161.051 C52.143775,160.35 52.8220755,160 53.499326,160 C54.1776265,160 54.855927,160.35 55.2045272,161.051 L56.9769285,164.613 C57.2530787,165.17 57.7885791,165.556 58.4080795,165.645 L62.3707823,166.216 C63.9289834,166.441 64.5516338,168.342 63.423933,169.433 L60.556381,172.206 Z" id="star_favorite-[#1499]"> </path> </g> </g> </g> </g></svg>
+            <p class="p-star">5</p>
+            <button id="adding-cart">ADD TO CART</button>
+        </div>
+    `;
+    cart.appendChild(newShoesCart)
+});
+
+const addToCartButtons = document.querySelectorAll('#adding-cart');
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', event => {
+        const shoes = event.target.closest('.shoes');
+        // move shoes into cart
+    });
+});
+
+
+
+/* */
+// get the cart element
+const cart = document.getElementById('cart');
+
+// get all the buttons with id 'adding-cart'
+const buttons = document.querySelectorAll('#adding-cart');
+
+// loop through the buttons and add a click event listener
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    // get the parent div of the button (which is the shoes div)
+    const shoes = button.parentElement.parentElement;
+    // append the shoes div to the cart
+    cart.appendChild(shoes);
+  });
+});
+
+
+
+/* */
+const addToCartButtons = document.querySelectorAll('.adding-cart');
+const cartList = document.querySelector('.cart ul');
+
+addToCartButtons.forEach(button => {
+	button.addEventListener('click', () => {
+		const shoe = button.parentNode.parentNode;
+		const shoeName = shoe.querySelector('h3').textContent;
+		const shoePrice = shoe.querySelector('.price').textContent;
+		// const cartItem = document.createElement('li');
+		cartItem.textContent = `${shoeName} - ${shoePrice}`;
+		cartList.appendChild(cartItem);
+	});
+});
+
+
+
+/* KODE YANG BENAR & JALAN UNTUK MENAMBHAKAN BARANG KE 'CART' */
+/* MENGGUNAKAN ES6 => */
+addToCartButtons.forEach(button => {
+	button.addEventListener('click', () => {
+		// Get the relevant information from the "shoes" div
+		const shoesDiv = button.parentElement.parentElement;
+		const imgSrc = shoesDiv.querySelector('.shoes-photos').src;  // '.src' digunakan untuk mengambil nilai dari atribut tertentu pada elemen HTML yang dipilih.  // BISA JUGA MENGGUNAKAN getAttribute(), kita dapat mengambil nilai dari atribut tertentu pada suatu elemen HTML.
+		const title = shoesDiv.querySelector('h3').textContent;
+		const price = shoesDiv.querySelector('.price').textContent;
+
+		// Create a new "shoes-cart" div with the retrieved information
+		const shoesCartDiv = document.createElement('div');
+		shoesCartDiv.classList.add('shoes-cart');
+		shoesCartDiv.innerHTML = `
+			<img class="shoes-photos" src="${imgSrc}" alt="">
+			<h3>${title}</h3>
+			<h2 class="price">${price}</h2>
+			<div class="result">
+			<button id="remove">remove</button>
+			<svg id="like-button" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Heart_01"> <path id="Vector" d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001C12 20.5001 21 15.4999 21 9.49991C21 3.49988 14 2.99988 12 7.69431Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+				<div class="cart-total">
+					<button class="minus">-</button>
+					<span class="quantity">1</span>
+					<button class="plus">+</button>
+				</div>
+			</div>
+		`;
+    
+		// Append the new "shoes-cart" div to the "CART" section
+		const cartSection = document.querySelector('#cart');
+		cartSection.parentNode.insertBefore(shoesCartDiv, cartSection.nextSibling);
+	});
+});
+
+
+
+/* */
+In JavaScript, both 'parentNode' and 'parentElement' are properties used to access the parent element of a given element in the Document Object Model (DOM).
+The 'parentNode' property returns the parent node of an element, which can be any type of node, including an element node, a text node, or a comment node. It is a property of the Node interface, which is a base interface that all nodes in the DOM inherit from.
+The 'parentElement' property, on the other hand, returns the parent element of an element. It always returns an element node and is a property of the Element interface, which is a derived interface of the Node interface.
+So, the main difference between 'parentNode' and 'parentElement' is the type of node they return. 'parentNode' can return any type of node, while 'parentElement' always returns an element node. In most cases, 'parentElement' is more appropriate when you want to access the parent element of an element in the DOM.
+
+
+
+/* */
+'Learning by research' is an approach to education that emphasizes the active and independent pursuit of knowledge through research activities. This approach involves students engaging in hands-on, inquiry-based learning experiences that allow them to explore and discover new information and knowledge.
+In learning by research, students are encouraged to identify their own research questions and design their own investigations to answer those questions. This approach emphasizes critical thinking, problem-solving, and creativity, and helps students develop skills such as data analysis, communication, and collaboration.
+The process of learning by research typically involves several stages, including:
+        1. Identifying a research question or topic of interest
+        2. Conducting background research to gather information and knowledge about the topic
+        3. Designing and conducting experiments or investigations to gather data
+        4. Analyzing and interpreting data to draw conclusions
+        5. Communicating findings through presentations, reports, or other means
+Learning by research can be applied in a variety of educational contexts, from elementary school through graduate school. It can be used in any subject area, from science and math to social studies and the arts. The approach can be adapted to meet the needs of different learners and can be used in both traditional classroom settings and online learning environments. Overall, learning by research encourages students to become active, engaged learners who are able to take ownership of their learning and pursue knowledge and understanding independently.
+
+
+
+/* */
+Metode getAttribute() digunakan untuk mengambil nilai dari atribut tertentu pada elemen HTML yang dipilih. Dalam JavaScript, setiap elemen HTML diwakili oleh objek DOM (Document Object Model). Objek DOM memungkinkan kita untuk memanipulasi elemen HTML dan atributnya menggunakan metode dan properti yang disediakan.
+Dengan menggunakan getAttribute(), kita dapat mengambil nilai dari atribut tertentu pada suatu elemen HTML. Metode ini mengambil satu argumen, yaitu nama atribut yang ingin kita ambil nilainya. Contoh penggunaannya adalah sebagai berikut:
+/*
+    let link = document.getElementById("myLink");
+    let hrefValue = link.getAttribute("href");
+*/
+Pada contoh di atas, getAttribute() digunakan untuk mengambil nilai dari atribut href pada elemen dengan id myLink. Nilai dari atribut tersebut kemudian disimpan ke dalam variabel hrefValue.
+Namun, jika kita ingin mengambil nilai dari atribut standar seperti id, class, title, src, dan lain sebagainya, sebaiknya kita menggunakan properti yang sesuai seperti element.id, element.className, element.title, element.src, dan sebagainya. Ini lebih disarankan karena lebih mudah ditulis dan memiliki kinerja yang lebih baik dibandingkan dengan getAttribute().
+
+const imgSrc = shoesDiv.querySelector('.shoes-photos').getAttribute('src');  // KETIKA MENGAMBIL   NILAI MENGUUNAKAN .getAttribute('src')
+const imgSrc = shoesDiv.querySelector('.shoes-photos').src;                  // TETAPI LEBIH TEPAT TANPA MENGGUNAKAN .getAttribute('src'), DAN LANGSUNG MENULISKANNYA ,src
+
+
+
+/* */
+You can directly access the src property of the <img> element using dot notation. Here's how you can modify the code:
+/*
+    const imgSrc = shoesDiv.querySelector('.shoes-photos').src;
+*/
+This will get the src value of the img element without using getAttribute().
+
+
+
+/* */
+In the code you provided, cartOrder.nextSibling is used to insert the shoesIntoCart element immediately after the cartOrder element in the DOM.
+.nextSibling is a property of a DOM element that returns the node immediately following the specified element in the DOM tree. It returns null if there are no more nodes.
+In the context of the provided code, cartOrder.nextSibling returns the next sibling node after the cartOrder element, which will be the element that comes after the cartOrder in the HTML markup. The shoesIntoCart element is then inserted immediately after this node using the insertBefore() method, which is called on the parent element of cartOrder.
+So, in summary, .nextSibling is used to get the next sibling of an element in the DOM, and it is used in the provided code to insert an element immediately after another element in the DOM.
+
+
+
+/* */
+Dalam kode tersebut, nextSibling adalah sebuah property pada objek yang merepresentasikan elemen HTML yang diidentifikasi dengan id cart (dalam hal ini, elemen HTML tersebut adalah cartOrder). Property ini digunakan bersama dengan method insertBefore() pada parent element cartOrder. nextSibling mengembalikan elemen HTML yang berada tepat setelah cartOrder pada tree node HTML. Sehingga, shoesIntoCart yang merupakan elemen HTML baru yang dibuat akan dimasukkan setelah cartOrder pada parent element yang sama.
+
+
+/* */
